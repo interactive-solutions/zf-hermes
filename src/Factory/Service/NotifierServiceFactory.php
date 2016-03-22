@@ -10,20 +10,22 @@ namespace InteractiveSolutions\Hermes\Factory\Service;
 
 use InteractiveSolutions\Hermes\Hydrator\MessageHydrator;
 use InteractiveSolutions\Hermes\Service\NotifierService;
+use Interop\Container\ContainerInterface;
 use Redis;
-use Zend\Mvc\Controller\ControllerManager;
 
 final class NotifierServiceFactory
 {
-    public function __invoke(ControllerManager $controllerManager):NotifierService
+    /**
+     * @param ContainerInterface $serviceLocator
+     * @return NotifierService
+     */
+    public function __invoke(ContainerInterface $serviceLocator):NotifierService
     {
-        $sl = $controllerManager->getServiceLocator();
-
         /* @var Redis $redis */
-        $redis = $sl->get(Redis::class);
+        $redis = $serviceLocator->get(Redis::class);
 
         /* @var MessageHydrator $hydrator */
-        $hydrator = $sl->get('HydratorManager')->get(MessageHydrator::class);
+        $hydrator = $serviceLocator->get('HydratorManager')->get(MessageHydrator::class);
 
         return new NotifierService($redis, $hydrator);
     }
