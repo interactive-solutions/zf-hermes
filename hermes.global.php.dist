@@ -1,0 +1,14 @@
+// Use this file if the default redis options are not sufficient
+
+use InteractiveSolutions\Hermes\Options\RedisOptions;
+
+return [
+    'interactive-solutions' => [
+        'options' => [
+            RedisOptions::class => [
+                'host' => 'localhost',
+                'port' => 6379
+            ]
+        ]
+    ]
+];
