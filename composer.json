@@ -1,0 +1,27 @@
+{
+  "name": "interactive-solutions/zf-hermes",
+  "type": "Zend Framework module",
+  "authors": [
+    {
+      "name":  "Erik Norgren",
+      "email": "erik.norgren@interactivesolutions.se"
+    }
+  ],
+  "description": "Interactive Solutions extension for Node Hermes",
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.0.0",
+    "zendframework/zendframework": "~2.5.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "InteractiveSolutions\\Hermes\\": "src/"
+    },
+    "classmap": [
+      "./Module.php"
+    ]
+  }
+}
