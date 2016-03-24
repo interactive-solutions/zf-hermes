@@ -18,6 +18,6 @@ class RedisOptionsFactory
         /* @var array $config */
         $config = $serviceLocator->get('config');
 
-        return new RedisOptions($config['interactive-solutions']['options'][RedisOptions::class]);
+        return new RedisOptions($config['interactive_solutions']['options'][RedisOptions::class]);
     }
 }
